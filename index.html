@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Box</title>
+
+    <!-- ===== STARTER HEAD: keep these exact tags ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
+        @theme {
+            --color-primary: #231123;
+            --color-secondary: #82204a;
+            --color-accent: #558c8c;
+            --color-background: #e8db7d;
+            --color-text: #eff7ff;
+        }
+
+        @layer components {
+            .btn-primary {
+                @apply rounded-xl bg-accent px-4 py-2 font-semibold text-primary transition-colors hover:bg-secondary hover:text-text;
+            }
+
+            .btn-secondary {
+                @apply rounded-xl bg-secondary px-4 py-2 font-semibold text-text transition-colors hover:bg-primary;
+            }
+        }
+    </style>
+    <!-- ===== END STARTER HEAD ===== -->
+</head>
+
+<body class="bg-background text-center text-primary">
+    <!-- TODO (E2): style this empty div as your scroll progress bar, or replace it with your own scrub effect -->
+    <div id="progressBar" class="fixed top-0 left-0 z-50 h-1 w-full origin-left bg-accent"></div>
+    <nav class="flex items-center justify-between bg-primary p-4 text-text">
+
+        <h1 class="text-3xl font-bold">Memory Box</h1>
+
+
+
+        <ul class="flex space-x-4">
+
+
+            <li><a href="#home" class="duration-500 hover:text-accent">Home</a></li>
+            <li><a href="#about" class="duration-500 hover:text-accent">About Us</a></li>
+            <li><a href="#services" class="duration-500 hover:text-accent">Services</a></li>
+            <li><a href="#contact" class="duration-500 hover:text-accent">Contact</a></li>
+
+            <button id=replay
+                class="rounded-xl bg-accent px-3 py-2 text-primary hover:bg-secondary hover:text-text">Replay
+                intro</button>
+            <button id="darkModeToggle" class="btn-primary">🌙Dark Mode</button>
+        </ul>
+
+    </nav>
+    <header id="home" class="bg-secondary px-6 py-12 text-text">
+        <h2 class="mb-5 text-4xl font-extrabold sm:text-2xl md:text-3xl">
+            Good <span class="font-extrabold text-background">Day</span> <span class="font-extrabold text-text">
+                <br> Photogenics</span> <span class="font-extrabold text-background">!!</span>
+
+            </h1>
+            <p class="text-lg text-text sm:text-base md:text-xl">
+                Let's capture your memories in the most beautiful way possible.
+            </p>
+
+    </header>
+
+    <main>
+        <!-- Hero: animated by your page-load timeline (D1), so it does not use the "reveal" class -->
+        <section id="about" class="reveal overflow-hidden rounded-2xl bg-primary p-6 text-text md:p-12">
+            <div class="grid items-center gap-10 text-left lg:grid-cols-2">
+                <div>
+                    <p class="mb-3 font-semibold uppercase tracking-[0.2em] text-accent">Photographs to keep forever</p>
+                    <h1 class="mb-5 text-4xl font-extrabold text-text sm:text-5xl">A little more life in every frame.
+                    </h1>
+                    <p class="mb-8 max-w-xl text-lg leading-relaxed text-text/85">
+                        Memory Box captures the people, places, and little in-between moments you never want to forget.
+                        Customize and explore a few of the stories we love to photograph.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#services" class="btn-primary inline-block">Explore our services</a>
+                        <a href="#contact" class="btn-secondary inline-block border border-accent">Plan a session</a>
+                    </div>
+
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 sm:gap-4" aria-label="Memory Box photography">
+                    <figure class="overflow-hidden rounded-2xl">
+                        <img src="https://neyssalee.com/wp-content/uploads/2023/06/Seattle_snoqualmie_family_photographer_neyssa_lee__3289-scaled.jpg"
+                            alt="Family sharing a joyful moment outdoors" class="h-56 w-full object-cover sm:h-72"
+                            loading="lazy">
+                        <figcaption class="bg-secondary px-4 py-3 text-sm font-semibold">Family moments</figcaption>
+                    </figure>
+                    <div class="grid gap-3 sm:gap-4">
+                        <figure class="overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85"
+                                alt="Couple celebrating their wedding day" class="h-36 w-full object-cover sm:h-44"
+                                loading="lazy">
+                            <figcaption class="bg-secondary px-4 py-3 text-sm font-semibold">Celebrations</figcaption>
+                        </figure>
+                        <figure class="overflow-hidden rounded-2xl">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2_kimAZWzz_2Qtubm0tFpROzOGzSsQj7ErA0gCCMDIw&s=10"
+                                alt="Portrait of a person" class="h-36 w-full object-cover sm:h-44" loading="lazy">
+                            <figcaption class="bg-secondary px-4 py-3 text-sm font-semibold">Portraits</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <div id="services" class="mt-12 border-t border-text/20 pt-8 text-left">
+                <h2 class="mb-5 text-2xl font-bold text-text">A preview of what we do</h2>
+                <div class="grid gap-4 sm:grid-cols-3">
+                    <article class="rounded-xl bg-secondary p-5">
+                        <h3 class="mb-2 text-lg font-bold">Portrait sessions</h3>
+                        <p class="text-sm leading-relaxed text-text/85">Personal, couple, and family portraits that feel
+                            like you.</p>
+                    </article>
+                    <article class="rounded-xl bg-secondary p-5">
+                        <h3 class="mb-2 text-lg font-bold">Life celebrations</h3>
+                        <p class="text-sm leading-relaxed text-text/85">Weddings, birthdays, and the meaningful moments
+                            in between.</p>
+                    </article>
+                    <article class="rounded-xl bg-secondary p-5">
+                        <h3 class="mb-2 text-lg font-bold">Custom Memory box</h3>
+                        <p class="text-sm leading-relaxed text-text/85">Candid lifestyle photography for the memories
+                            happening right now.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sections below the hero carry the "    reveal" hook class for your ScrollTrigger loop (E1) -->
+        <section id="about" class="reveal">
+            <h2>About</h2>
+            <p>Write a short paragraph about yourself, your business, or your hobby. Replace this placeholder text.</p>
+        </section>
+
+        <section id="work" class="reveal">
+            <h2>Work</h2>
+            <div>
+                <article>
+                    <h3>Project One</h3>
+                    <p>A short description of this project.</p>
+                </article>
+                <article>
+                    <h3>Project Two</h3>
+                    <p>A short description of this project.</p>
+                </article>
+                <article>
+                    <h3>Project Three</h3>
+                    <p>A short description of this project.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="reveal">
+            <h2>Contact</h2>
+            <form action="#">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Your Name or Brand</p>
+    </footer>
+
+    <!-- Load order matters: GSAP, then ScrollTrigger, then your own script -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+
+    
+</body>
+
+</html>
